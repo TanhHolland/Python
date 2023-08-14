@@ -1,7 +1,7 @@
-print("Input")
+
 x = input()
-print(" + ",end = '')
-y = input()
-print("= ",end = '')
-z = input()
-print("ho")
+x = int(x)
+if x %2 == 0:
+    print("CHAN")
+else:
+    print("LE")
