@@ -3,11 +3,12 @@ x = int(x)
 while x > 0:
     x -= 1
     a,b,c= input().split()
-    c = float(c)
-    b = float(b)
     a = float(a)
-    i = 0
-    while(c < a):
-        c = c*((1 + b/100)**i)
+    b = float(b)
+    b = b/100
+    c = float(c)
+    i = 1
+    while(a < c):
+        a = a + a*b
         i+=1
-    print(i)
+    print(i-1)
