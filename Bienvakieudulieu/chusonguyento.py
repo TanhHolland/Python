@@ -12,7 +12,7 @@ def check(n):
     dem = len(n)
     demsnt = 0
     for i in n:
-        a = ord(i)
+        a = int(i)
         if snt(a) : demsnt+=1
     if(snt(dem) == True and demsnt > dem - demsnt) :return "YES"
     return "NO"
