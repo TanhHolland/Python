@@ -1,19 +1,18 @@
 x = int(input())
-
-def check(n):
-    if n < 2: return False
-    if n <=3: return False
-    if n %2 == 0 or n%3 == 0: return False
-    i = 5
-    while i * i <=n :
-        if n %i == 0 or (n+2) %i == 0 : return False
-        i+=6
-    return True
+MAX = 1000005
+a = [0]*MAX
+a[0] = 1
+a[1] = 1
+for i in range(2,MAX//2 + 1) :
+    if a[i] == 0 :
+        for j in range(i*2,MAX,i):
+            if a[j] == 0 :
+                a[j] = 1
 while x > 0:
     x -= 1
     n = int(input())
     c = 0
     for i in range(2,n-6) :
-        if (check(i) and check(i+2) and check(i+6)) or (check(i) and check(i+4) and check(i+6)) : c+=1
+        if (a[i] == 0 and a[i+2]== 0 and a[i+6] == 0) or (a[i]==0 and a[i+4] ==0 and a[i+6]==0) : c+=1
     print(c)
         

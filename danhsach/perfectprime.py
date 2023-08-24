@@ -1,31 +1,28 @@
-x = int(input())
-MAX = 10000005
-a = [0]*MAX
-a[0] = 1
-a[1] = 1
-for i in range(2, MAX//2 + 1):
-    if a[i] == 0:
-        for j in range(2, MAX, i):
-            if a[j] == 0:
-                a[j] = 1
-
-
+import math
+def snt(n) :
+    if n < 2 : return False
+    if n <=3 : return True
+    if n%2 == 0 or n%3 == 0: return False
+    kq = int(math.sqrt(n))
+    i = 5
+    while i <= kq :
+        if n%i == 0 or n%(i+2) == 0 : return False
+        i+=6
+    return True
 def check(n):
-    if a[n] == 1:
-        return "No"
-    m = 0
+    if snt(int(n)) == False or snt(int(n[::-1])) == False : return "No" 
+    n = int(n)
     sum = 0
     while n > 0:
         temp = n % 10
-        sum+=temp
-        if a[temp] == 1:
+        if snt(temp) == False:
             return "No"
-        m = m * 10 + temp
+        sum+=temp
         n //= 10
-    if a[sum] == 1 or a[m] == 1: return "No"
+    if snt(sum) == False: return "No"
     return "Yes"
-
+x = int(input())
 while x > 0:
     x -= 1
-    n = int(input())
+    n = input()
     print(check(n))
