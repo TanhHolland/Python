@@ -1,9 +1,9 @@
 x = int(input())
 def check(item) :
-    sum = 0
+    sum = 1
     n = item
     while (n > 0) :
-        sum += n%10
+        sum *= n%10
         n//=10
     return(sum,item)
 while x > 0:
