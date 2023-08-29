@@ -1,10 +1,13 @@
-import math
-while True :
-    s = list(map(int,input().split()))
-    if s.count(0) == 4 : break
-    dem = 0
-    while s.count(s[0]) != 4 :
-        s.append(abs(s[0] - s[1]))
-        dem+=1
-        del s[0]
-    print(dem)
+x = int(input())
+while x > 0:
+    x-=1
+    n = int(input())
+    a = list(map(int,input().split()))
+    b = list(map(int,input().split()))
+    a.sort()
+    b.sort()
+    c = True
+    for i in range(0,n):
+        if a[i] > b[i] : c = False
+    if c == True : print("YES")
+    else : print ("NO")
