@@ -1,20 +1,13 @@
-n = int(input())
-a = list(map(int,input().split()))
-sum_ht = 0
-sum_max = 0
-size_ht = 0
-size_max = 0
-start = 0
-end = 0
-while end < n:
-   sum_ht += a[end]
-   if (sum_ht / (end - start + 1)) > sum_max:
-      sum_max = sum_ht
-      size_max = end - start + 1
-   elif (sum_ht / (end - start + 1)) == sum_max and end - start + 1 > size_max :
-      size_max = end - start + 1
+x = int(input())
+s = list(map(int,input().split()))
+s.append(-99)
+maxx = max(s)
+dodai_ht = 0
+dodai_max = 0
+for i in range(len(s)) :
+   if s[i] == maxx :
+      dodai_ht +=1
    else :
-      start = end + 1
-      sum_ht = 0
-   end +=1
-print(size_max)
+      dodai_max = max(dodai_ht,dodai_max)
+      dodai_ht = 0
+print(dodai_max)
