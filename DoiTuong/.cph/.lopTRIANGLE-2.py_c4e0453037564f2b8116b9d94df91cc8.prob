@@ -1,0 +1,1 @@
+{"name":"Local: lopTRIANGLE-2","url":"g:\\3-K1\\Python\\DoiTuong\\lopTRIANGLE-2.py","tests":[{"id":1695948248806,"input":"3\n0 0 0 5 0 199\n1 1 1 1 1 1\n0 0 0 5 5 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"g:\\3-K1\\Python\\DoiTuong\\lopTRIANGLE-2.py","group":"local","local":true}
