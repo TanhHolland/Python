@@ -18,7 +18,7 @@ class Triangle :
         B = self.b.distance(self.c)
         if A + C <= B or A + B <= C or C + B <= A :
             return "INVALID"
-        return "{:.2f}".format(math.sqrt((A+B+C) * (A+B-C )* (B+C-A) * (C+A-B))/4)
+        return "{:.2f}".format(math.sqrt((A+B+C) * (A+B-C) * (A-B+C) * (-A+B+C))/4) # |(A+B+C) * (A+B-C) * (A-B+C) * (-A+B+C)| AC còn |(A+B+C) * (A+B-C) * (B+C-A) * (C+A-B)| WA (khó hiểu)
 s = []
 t = int(input())
 while len(s) < t*6:
