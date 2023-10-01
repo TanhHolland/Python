@@ -1,22 +1,26 @@
-import math
-x = int(input())
+import sys
 ds = []
-while x > 0:
-   x-=1
-   s = input()
-   ds.append(s)
-MIN = 10000
-for i in range(len(ds)) :
-   dem = 0
-   for j in range(len(ds)) :
-      if i != j :
-         s = ds[j]
-         siz = 0
-         while siz < len(s) :
-            s += s[0]
-            s = s[1:]
-            siz+=1
-            if (s == ds[i]) :
-               dem += siz
-   MIN = min(dem,MIN)
-print(dem)
+for line in sys.stdin :
+   ds += list(map(int,line.split()))
+x = ds[0]
+i = 1
+for _ in range(x):
+   n,c,d = ds[i],ds[i+1],ds[i+2]
+   i+=3
+   a = []
+   for j in range(n):
+      a.append(ds[i+j])
+   i+=n
+   a = sorted(a,reverse=True)
+   id = 0
+   dmax = []
+   dmin = []
+   for _ in range(min(c,d)) :
+      dmax.append(a[id])
+      id+=1
+   for _ in range(max(c,d)) :
+      dmin.append(a[id])
+      id+=1
+   s = sum(dmax)/len(dmax) + sum(dmin)/len(dmin)
+   print("{:.6f}".format(s))
+   
