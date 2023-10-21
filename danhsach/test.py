@@ -1,26 +1,23 @@
-import sys
-ds = []
-for line in sys.stdin :
-   ds += list(map(int,line.split()))
-x = ds[0]
-i = 1
-for _ in range(x):
-   n,c,d = ds[i],ds[i+1],ds[i+2]
-   i+=3
-   a = []
-   for j in range(n):
-      a.append(ds[i+j])
-   i+=n
-   a = sorted(a,reverse=True)
-   id = 0
-   dmax = []
-   dmin = []
-   for _ in range(min(c,d)) :
-      dmax.append(a[id])
-      id+=1
-   for _ in range(max(c,d)) :
-      dmin.append(a[id])
-      id+=1
-   s = sum(dmax)/len(dmax) + sum(dmin)/len(dmin)
-   print("{:.6f}".format(s))
-   
+n = int(input())
+a = list(map(int,input().split()))
+res = 100000
+for i in range(1,n-1) :
+   b = [0]*n
+   b[i] = a[i]
+   dem = 0
+   for j in range(i-1,-1,-1) :
+      if a[j] >= b[j+1] :
+         dem += a[j] - b[j+1] + 1
+      else :
+         dem += b[j+1] - a[j] - 1
+      b[j] = b[j+1] - 1
+   for j in range(i+1,n,1) :
+      if a[j] >= b[j-1] :
+         dem += a[j] - b[j-1] + 1
+      else :
+         dem += b[j-1] - a[j] - 1
+      b[j] = b[j-1] - 1
+   if b.count(0) > 0 :
+      continue
+   res = min(dem,res)
+print(res)
