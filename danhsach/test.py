@@ -1,23 +1,17 @@
-n = int(input())
-a = list(map(int,input().split()))
-res = 100000
-for i in range(1,n-1) :
-   b = [0]*n
-   b[i] = a[i]
-   dem = 0
-   for j in range(i-1,-1,-1) :
-      if a[j] >= b[j+1] :
-         dem += a[j] - b[j+1] + 1
-      else :
-         dem += b[j+1] - a[j] - 1
-      b[j] = b[j+1] - 1
-   for j in range(i+1,n,1) :
-      if a[j] >= b[j-1] :
-         dem += a[j] - b[j-1] + 1
-      else :
-         dem += b[j-1] - a[j] - 1
-      b[j] = b[j-1] - 1
-   if b.count(0) > 0 :
-      continue
-   res = min(dem,res)
-print(res)
+# n,k = input().split()
+# n,k = int(n),int(k)
+# s = [int(x) for x in input().split()]
+# ds = []
+# for i in s:
+#     if i not in ds :
+#         ds.append(i)
+# ds.sort()
+
+for t in range(int(input())) :
+    n,p = [int(x) for x in input().split()]
+    d = 0
+    for i in range(2,n+1) :
+        while i %p == 0 :
+            i /=p
+            d+=1
+    print(d)
