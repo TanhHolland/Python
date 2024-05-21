@@ -1,0 +1,5 @@
+n = int(input())
+s = list(map(int,input().split()))
+s.sort()
+kq = max(s[n-1]*s[n-2]*s[n-3],s[n-1]*s[n-2],s[0]*s[1]*s[n-1])
+print(kq)
