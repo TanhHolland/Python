@@ -4,20 +4,6 @@ a = list(map(int,input().split()))
 p = 0
 dict = {}
 
-def demSoPhanTuBenPhai(x,left, right) :
-    dem = 0
-    while(left < right) :
-        if a[left] < x : dem+=1
-        if a[right] < x : dem +=1
-    return dem
-
-def demSoPhanTuBenTrai(x,left, right) :
-    dem = 0
-    while(left < right) :
-        if a[left] > x : dem+=1
-        if a[right] > x : dem +=1
-    return dem
-
 def tinhTongCacUoc(n : int) :
     sum = 1 + n
     m = int(math.sqrt(n))
